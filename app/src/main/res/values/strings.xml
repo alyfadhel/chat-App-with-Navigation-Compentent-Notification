@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ChatApp</string>
+    <string name="messages_channel">Route Chat app messaging channel</string>
+    <string name="messaging_channel_description">this channel to show notifications related to app messages</string>
+</resources>

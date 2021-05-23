@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.example.chatapp.ui.register.RegisterViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:orientation="vertical"
+        android:background="@drawable/bc"
+        tools:context=".ui.register.RegisterActivity">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:layout_margin="8dp"
+            android:text="@={vm.name}"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please Enter Your Name"
+            android:textColor="@color/red"
+            android:layout_margin="8dp"
+            android:visibility="@{vm.nameError?View.VISIBLE:View.GONE}"
+            />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:layout_margin="8dp"
+            android:text="@={vm.email}"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please Enter Your Email"
+            android:textColor="@color/red"
+            android:layout_margin="8dp"
+            android:visibility="@{vm.emailError?View.VISIBLE:View.GONE}"
+            />
+
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="UserName"
+            android:layout_margin="8dp"
+            android:text="@={vm.userName}"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please Enter Your Username"
+            android:textColor="@color/red"
+            android:layout_margin="8dp"
+            android:visibility="@{vm.userNameError?View.VISIBLE:View.GONE}"
+            />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:layout_margin="8dp"
+            android:text="@={vm.password}"
+            />
+
+        <TextView
+            android:id="@+id/password_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password Should Be At Least 6 chars"
+            android:textColor="@color/red"
+            android:layout_margin="8dp"
+            android:visibility="@{vm.passwordError?View.VISIBLE:View.GONE}"
+
+            />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_margin="8dp"
+            android:onClick="@{()->vm.register()}"
+            />
+    </LinearLayout>
+</layout>

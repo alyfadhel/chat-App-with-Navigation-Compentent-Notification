@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_menu"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/addRoomFragment"
+        android:name="com.example.chatapp.ui.addRoom.AddRoomFragment"
+        android:label="AddRoomFragment"
+        tools:layout="@layout/activity_add_room"
+        />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.chatapp.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/activity_home"
+        >
+        <action
+            android:id="@+id/action_homeFragment_to_addRoomFragment"
+            app:destination="@id/addRoomFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_roomDetailsFragment"
+            app:destination="@id/roomDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.chatapp.ui.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/activity_login"
+        >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.chatapp.ui.register.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/activity_register"
+        >
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomDetailsFragment"
+        android:name="com.example.chatapp.ui.roomDetails.RoomDetailsFragment"
+        android:label="RoomDetailsFragment">
+        <argument
+            android:name="room"
+            app:argType="com.example.chatapp.dataBase.model.Room" />
+    </fragment>
+</navigation>

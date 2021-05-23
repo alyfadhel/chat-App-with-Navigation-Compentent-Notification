@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.example.chatapp.ui.login.LoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:background="@drawable/bc"
+        android:orientation="vertical"
+        tools:context=".ui.login.LoginActivity">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+           android:layout_margin="8dp"
+            android:text="@={vm.email}"
+            />
+        <TextView
+            android:id="@+id/email_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please Enter Your Valid Email"
+            android:textColor="@color/red"
+            android:layout_margin="8dp"
+            android:visibility="@{vm.emailError?View.VISIBLE:View.GONE}"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_margin="8dp"
+            android:text="@={vm.password}"
+            />
+        <TextView
+            android:id="@+id/password_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password Should Be At Least 6 chars"
+            android:textColor="@color/red"
+            android:layout_margin="8dp"
+            android:visibility="@{vm.passwordError?View.VISIBLE:View.GONE}"
+            />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:background="@color/blue"
+            android:layout_margin="8dp"
+            android:onClick="@{()->vm.login()}"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't Have Email ?!! "
+                android:layout_margin="8dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register Here !! "
+                android:textColor="@color/red"
+                android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:onClick="@{()->vm.goToRegister()}"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
